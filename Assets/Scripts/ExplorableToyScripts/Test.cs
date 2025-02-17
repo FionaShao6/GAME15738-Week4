@@ -13,14 +13,12 @@ public class Test : MonoBehaviour
 
     GameObject currentLine; //Store all the points currently drawn
     Vector3 lastPointPosition;//Stores the position of the last drawn point
-   
-   
 
-
-   
+    private bool canDraw = false;  // Is drawing allowed?
 
     void Update()
     {
+        if (!canDraw) return;
         if (Input.GetMouseButtonDown(0)) //if the left mouse button is pressed
         {
 
@@ -32,6 +30,11 @@ public class Test : MonoBehaviour
            
             UpdateLineDrawing();//Continuous drawing
         }
+    }
+    public void EnableDrawing()
+    {
+        canDraw = true;  // Allow drawing
+        Debug.Log("Now you can start to draw!");
     }
 
     void StartNewLine()
@@ -86,7 +89,7 @@ public class Test : MonoBehaviour
         newBrush.transform.SetParent(currentLine.transform); // Add to current line
         newBrush.transform.localScale = brushSpot.transform.localScale; //Inherited size
 
-        SpriteRenderer brushRenderer = newBrush.GetComponent<SpriteRenderer>();
+        SpriteRenderer brushRenderer = newBrush.GetComponent<SpriteRenderer>();//Get components at runtime
         if (brushRenderer != null)
         {
             brushRenderer.color = brushSpot.color; // Inherited color
