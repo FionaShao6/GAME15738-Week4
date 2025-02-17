@@ -13,7 +13,7 @@ public class Test : MonoBehaviour
 
     GameObject currentLine; //Store all the points currently drawn
     Vector3 lastPointPosition;//Stores the position of the last drawn point
-    bool isDrawing = false;//whether drawing is in the progress
+   
    
 
 
@@ -37,7 +37,6 @@ public class Test : MonoBehaviour
     void StartNewLine()
     {
         
-        isDrawing = true;
 
         // Let currentLine belong to a fixed parent object
         currentLine = new GameObject("Line");
@@ -103,5 +102,7 @@ public class Test : MonoBehaviour
         mousePos.z = -Camera.main.transform.position.z;//Make it consistent with the camera's z
         return Camera.main.ScreenToWorldPoint(mousePos);
     }
+
+   
 }
 

@@ -10,10 +10,7 @@ public class BrushManage : MonoBehaviour
     public GameObject brushPrefab;  // This is the player controlled Brush Prefab
     public Transform canvasTransform; // Canvas posistion
 
-    void Update()
-    {
-       
-    }
+   
     public void Draw(Vector2 position)
     {
         GameObject newBrush = Instantiate(brushPrefab, position, Quaternion.identity, canvasTransform);
